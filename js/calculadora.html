@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>calculadora</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@100..900&family=Major+Mono+Display&family=Micro+5+Charted&family=Orbitron:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body
+    class="font-['Orbitron'] bg-neutral-900 flex justify-center items-center h-screen"
+  >
+    <main>
+      <section
+        class="border-blue-900 bg-neutral-100 border-4 p-8 rounded-xl w-[480px] h-[720px] shadow-2xl shadow-neutral-700"
+      >
+        <h2 class="text-neutral-800 text-6xl text-right" id="result">
+          00000000
+        </h2>
+        <div class="grid grid-cols-4 gap-4 mt-10">
+          <button
+            id="btn-clear"
+            class="bg-blue-700 text-neutral-100 text-4xl p-4 rounded-xl size-24 shadow-xl shadow-neutral-600 hover:bg-blue-800"
+          >
+            C
+          </button>
+          <button
+            id="btn-backspace"
+            class="bg-blue-700 text-neutral-100 text-4xl p-4 rounded-xl size-24 shadow-xl shadow-neutral-600 hover:bg-blue-800"
+          >
+            <i class="bx bx-arrow-back"></i>
+          </button>
+          <button
+            id="btn-percent"
+            class="bg-blue-700 text-neutral-100 text-4xl p-4 rounded-xl size-24 shadow-xl shadow-neutral-600 hover:bg-blue-800"
+          >
+            %
+          </button>
+          <button
+            id="btn-divide"
+            class="bg-blue-700 text-neutral-100 text-4xl p-4 rounded-xl size-24 shadow-xl shadow-neutral-600 hover:bg-blue-800"
+          >
+            /
+          </button>
+
+          <button
+            id="btn-7"
+            class="bg-blue-600 text-neutral-100 text-4xl p-4 rounded-xl size-24 shadow-xl shadow-neutral-600 hover:bg-blue-800"
+          >
+            7
+          </button>
+          <button
+            id="btn-8"
+            class="bg-blue-600 text-neutral-100 text-4xl p-4 rounded-xl size-24 shadow-xl shadow-neutral-600 hover:bg-blue-800"
+          >
+            8
+          </button>
+          <button
+            id="btn-9"
+            class="bg-blue-600 text-neutral-100 text-4xl p-4 rounded-xl size-24 shadow-xl shadow-neutral-600 hover:bg-blue-800"
+          >
+            9
+          </button>
+
+          <button
+            id="btn-multiply"
+            class="bg-blue-700 text-neutral-100 text-4xl p-4 rounded-xl size-24 shadow-xl shadow-neutral-600 hover:bg-blue-800"
+          >
+            *
+          </button>
+          <button
+            id="btn-4"
+            class="bg-blue-600 text-neutral-100 text-4xl p-4 rounded-xl size-24 shadow-xl shadow-neutral-600 hover:bg-blue-800"
+          >
+            4
+          </button>
+          <button
+            id="btn-5"
+            class="bg-blue-600 text-neutral-100 text-4xl p-4 rounded-xl size-24 shadow-xl shadow-neutral-600 hover:bg-blue-800"
+          >
+            5
+          </button>
+          <button
+            id="btn-6"
+            class="bg-blue-600 text-neutral-100 text-4xl p-4 rounded-xl size-24 shadow-xl shadow-neutral-600 hover:bg-blue-800"
+          >
+            6
+          </button>
+
+          <button
+            id="btn-subtract"
+            class="bg-blue-700 text-neutral-100 text-4xl p-4 rounded-xl size-24 shadow-xl shadow-neutral-600 hover:bg-blue-800"
+          >
+            -
+          </button>
+          <button
+            id="btn-1"
+            class="bg-blue-600 text-neutral-100 text-4xl p-4 rounded-xl size-24 shadow-xl shadow-neutral-600 hover:bg-blue-800"
+          >
+            1
+          </button>
+          <button
+            id="btn-2"
+            class="bg-blue-600 text-neutral-100 text-4xl p-4 rounded-xl size-24 shadow-xl shadow-neutral-600 hover:bg-blue-800"
+          >
+            2
+          </button>
+          <button
+            id="btn-3"
+            class="bg-blue-600 text-neutral-100 text-4xl p-4 rounded-xl size-24 shadow-xl shadow-neutral-600 hover:bg-blue-800"
+          >
+            3
+          </button>
+
+          <button
+            id="btn-add"
+            class="bg-blue-700 text-neutral-100 text-4xl p-4 rounded-xl size-24 shadow-xl shadow-neutral-600 hover:bg-blue-800"
+          >
+            +
+          </button>
+          <button
+            id="btn-0"
+            class="bg-blue-600 text-neutral-100 text-4xl col-span-2 p-4 rounded-xl shadow-xl shadow-neutral-600 hover:bg-blue-800"
+          >
+            0
+          </button>
+          <button
+            id="btn-dot"
+            class="bg-blue-700 text-neutral-100 text-4xl p-4 rounded-xl size-24 shadow-xl shadow-neutral-600 hover:bg-blue-800"
+          >
+            .
+          </button>
+          <button
+            id="btn-equal"
+            class="bg-blue-700 text-neutral-100 text-4xl p-4 rounded-xl size-24 shadow-xl shadow-neutral-600 hover:bg-blue-800"
+          >
+            =
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      let result = document.getElementById("result");
+      let btnClear = document.getElementById("btn-clear");
+      let btnBackspace = document.getElementById("btn-backspace");
+      let btnPercent = document.getElementById("btn-percent");
+      let btnDivide = document.getElementById("btn-divide");
+      let btnMultiply = document.getElementById("btn-multiply");
+      let btnSubtract = document.getElementById("btn-subtract");
+      let btnAdd = document.getElementById("btn-add");
+      let btnEqual = document.getElementById("btn-equal");
+      let btnDot = document.getElementById("btn-dot");
+      let btn0 = document.getElementById("btn-0");
+      let btn1 = document.getElementById("btn-1");
+      let btn2 = document.getElementById("btn-2");
+      let btn3 = document.getElementById("btn-3");
+      let btn4 = document.getElementById("btn-4");
+      let btn5 = document.getElementById("btn-5");
+      let btn6 = document.getElementById("btn-6");
+      let btn7 = document.getElementById("btn-7");
+      let btn8 = document.getElementById("btn-8");
+      let btn9 = document.getElementById("btn-9");
+
+      let currentNumber = "";
+      let firstNumber = "";
+      let secondNumber = "";
+      let resultOperation = "";
+      let lastOperation = "";
+
+      function clear() {
+        currentNumber = "";
+        firstNumber = "";
+        secondNumber = "";
+        resultOperation = "";
+        lastOperation = "";
+        result.textContent = "0";
+      }
+
+      function backspace() {
+        currentNumber = currentNumber.slice(0, -1);
+        result.textContent = currentNumber || "0";
+      }
+
+      function percent() {
+        currentNumber = (parseFloat(currentNumber) / 100).toString();
+        result.textContent = currentNumber;
+      }
+
+      function setNumber(number) {
+        currentNumber += number;
+        result.textContent = currentNumber;
+      }
+
+      function setOperation(operation) {
+        if (firstNumber) {
+          secondNumber = currentNumber;
+          calculate();
+          firstNumber = resultOperation;
+          lastOperation = operation;
+          currentNumber = "";
+        } else {
+          firstNumber = currentNumber;
+          lastOperation = operation;
+          currentNumber = "";
+        }
+      }
+
+      function calculate() {
+        switch (lastOperation) {
+          case "+":
+            resultOperation = (
+              parseFloat(firstNumber) + parseFloat(secondNumber)
+            ).toString();
+            break;
+          case "-":
+            resultOperation = (
+              parseFloat(firstNumber) - parseFloat(secondNumber)
+            ).toString();
+            break;
+          case "*":
+            resultOperation = (
+              parseFloat(firstNumber) * parseFloat(secondNumber)
+            ).toString();
+            break;
+          case "/":
+            resultOperation = (
+              parseFloat(firstNumber) / parseFloat(secondNumber)
+            ).toString();
+            break;
+          default:
+            resultOperation = currentNumber;
+        }
+        result.textContent = resultOperation;
+      }
+
+      btnClear.addEventListener("click", clear);
+      btnBackspace.addEventListener("click", backspace);
+      btnPercent.addEventListener("click", percent);
+      btnDivide.addEventListener("click", () => setOperation("/"));
+      btnMultiply.addEventListener("click", () => setOperation("*"));
+      btnSubtract.addEventListener("click", () => setOperation("-"));
+      btnAdd.addEventListener("click", () => setOperation("+"));
+      btnEqual.addEventListener("click", calculate);
+      btnDot.addEventListener("click", () => {
+        if (!currentNumber.includes(".")) {
+          currentNumber += ".";
+          result.textContent = currentNumber;
+        }
+      });
+      btn0.addEventListener("click", () => setNumber("0"));
+      btn1.addEventListener("click", () => setNumber("1"));
+      btn2.addEventListener("click", () => setNumber("2"));
+      btn3.addEventListener("click", () => setNumber("3"));
+      btn4.addEventListener("click", () => setNumber("4"));
+      btn5.addEventListener("click", () => setNumber("5"));
+      btn6.addEventListener("click", () => setNumber("6"));
+      btn7.addEventListener("click", () => setNumber("7"));
+      btn8.addEventListener("click", () => setNumber("8"));
+      btn9.addEventListener("click", () => setNumber("9"));
+    </script>
+  </body>
+</html>

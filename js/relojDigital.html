@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RELOJ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@100..900&family=Major+Mono+Display&family=Micro+5+Charted&family=Orbitron:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      function updateClock() {
+        const now = new Date();
+        const hours = now.getHours().toString().padStart(2, "0");
+        const minutes = now.getMinutes().toString().padStart(2, "0");
+        const seconds = now.getSeconds().toString().padStart(2, "0");
+        document.getElementById(
+          "clock"
+        ).textContent = `   ${hours}:${minutes}:${seconds}`;
+      }
+      setInterval(updateClock, 1000);
+    </script>
+  </head>
+
+  <body
+    class="font-['Major_Mono_Display'] bg-neutral-900 flex justify-center items-center h-screen"
+  >
+    <main>
+      <section class="border-lime-400 border-4 p-8 rounded-xl w-120">
+        <h1 class="text-4xl text-purple-600">Reloj Digital</h1>
+        <h2 class="text-lime-400 text-6xl" id="clock">00:00:00</h2>
+      </section>
+    </main>
+  </body>
+</html>
