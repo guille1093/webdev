@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diseño de Cajas</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 20px;
+      }
+
+      .contenedor {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .caja {
+        width: 200px;
+        height: 200px;
+        background-color: #007bff;
+        border: 2px solid #333;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 20px;
+        text-align: center;
+      }
+
+      .caja.pequena {
+        width: 100px;
+        height: 100px;
+      }
+
+      .caja.grande {
+        width: 300px;
+        height: 300px;
+      }
+
+      .caja.redondeada {
+        border-radius: 50%;
+      }
+
+      .caja.sombra {
+        box-shadow: 15px 8px 8px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contenedor">
+      <h1>Diseño de Cajas</h1>
+      <div class="caja pequena">Caja Pequeña</div>
+      <div class="caja">Caja Normal</div>
+      <div class="caja grande">Caja Grande</div>
+      <div class="caja redondeada">Caja Redonda</div>
+      <div class="caja sombra">Caja con Sombra</div>
+    </div>
+  </body>
+</html>
